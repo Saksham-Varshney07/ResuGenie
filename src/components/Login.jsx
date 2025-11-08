@@ -1,0 +1,134 @@
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './Login.css';
+
+const Login = ({ onLogin }) => {
+  const [formData, setFormData] = useState({
+    email: '',
+    password: ''
+  });
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    try {
+      const response = await fetch("http://localhost:5000/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          password: formData.password,
+        }),
+      });
+
+      const data = await response.json();
+      setIsLoading(false);
+
+      if (response.ok) {
+        // Save JWT token to localStorage for future use
+        localStorage.setItem("token", data.token);
+
+        alert("✅ Login successful!");
+        if (onLogin) onLogin();
+        navigate("/form"); // redirect to form page
+      } else {
+        alert(data.message || "❌ Invalid email or password");
+      }
+    } catch (error) {
+      setIsLoading(false);
+      alert("⚠️ Something went wrong. Please try again.");
+      console.error("Login error:", error);
+    }
+  };
+
+  return (
+    <div className="login-page">
+      <div className="login-container">
+        <div className="login-header">
+          <h1 className="login-title">AI Resume Builder</h1>
+          <p className="login-subtitle">Create professional resumes with AI assistance</p>
+        </div>
+
+        <div className="login-card">
+          <h2 className="login-form-title">Welcome Back</h2>
+          <p className="login-form-subtitle">Sign in to continue building your resume</p>
+
+          <form onSubmit={handleSubmit} className="login-form">
+            <div className="form-group">
+              <label htmlFor="email" className="form-label">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                className="form-input"
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="password" className="form-label">Password</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                value={formData.password}
+                onChange={handleInputChange}
+                className="form-input"
+                placeholder="Enter your password"
+                required
+              />
+            </div>
+
+            <button
+              type="submit"
+              className={`btn btn-primary login-btn ${isLoading ? 'loading' : ''}`}
+              disabled={isLoading}
+            >
+              {isLoading ? 'Signing In...' : 'Sign In'}
+            </button>
+          </form>
+
+          <div className="login-footer">
+            <p>Don't have an account? <a href="/signup" className="login-link">Sign up</a></p>
+          </div>
+        </div>
+
+        <div className="login-features">
+          <div className="feature">
+            <div className="feature-icon">🤖</div>
+            <h3>AI-Powered</h3>
+            <p>Smart suggestions and content optimization</p>
+          </div>
+          <div className="feature">
+            <div className="feature-icon">📄</div>
+            <h3>Professional Templates</h3>
+            <p>Multiple layouts designed by experts</p>
+          </div>
+          <div className="feature">
+            <div className="feature-icon">⚡</div>
+            <h3>Quick & Easy</h3>
+            <p>Build your resume in minutes, not hours</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Login;

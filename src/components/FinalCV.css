@@ -1,0 +1,429 @@
+.final-page {
+  min-height: 100vh;
+  background-color: #f8fafc;
+}
+
+.final-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 20px 0;
+}
+
+.final-layout {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.final-actions-card {
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 20px;
+}
+
+.final-actions-card h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.download-options {
+  margin-bottom: 32px;
+}
+
+.format-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.format-option {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.format-option:hover {
+  border-color: #3b82f6;
+  background-color: #f8fafc;
+}
+
+.format-option input[type="radio"] {
+  margin-right: 12px;
+}
+
+.format-option input[type="radio"]:checked + .format-label {
+  color: #3b82f6;
+  font-weight: 600;
+}
+
+.format-option:has(input:checked) {
+  border-color: #3b82f6;
+  background-color: #eff6ff;
+}
+
+.format-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+}
+
+.format-icon {
+  font-size: 1.2rem;
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.download-btn {
+  font-size: 1.1rem;
+  padding: 16px 24px;
+  font-weight: 600;
+}
+
+.download-btn.loading {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.additional-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 24px;
+  border-top: 1px solid #e5e7eb;
+  margin-bottom: 32px;
+}
+
+.success-features {
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  color: #0c4a6e;
+}
+
+.feature-item:last-child {
+  margin-bottom: 0;
+}
+
+.feature-icon {
+  font-size: 1rem;
+}
+
+.final-preview {
+  display: flex;
+  justify-content: center;
+}
+
+.resume-final {
+  width: 210mm;
+  min-height: 297mm;
+  background: white;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  font-size: 14px;
+  line-height: 1.5;
+  color: #374151;
+}
+
+/* Resume styles - reuse from preview */
+.resume-header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.resume-name {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 12px;
+}
+
+.resume-contact {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  font-size: 0.9rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #64748b;
+}
+
+.contact-item a {
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+.contact-item a:hover {
+  text-decoration: underline;
+}
+
+.resume-section {
+  margin-bottom: 30px;
+}
+
+.section-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e5e7eb;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.summary-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #374151;
+  text-align: justify;
+}
+
+.experience-item,
+.education-item,
+.project-item {
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+}
+
+.experience-header,
+.education-header,
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.position-title,
+.degree-title,
+.project-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 4px;
+}
+
+.company-name,
+.institution-name {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #3b82f6;
+  margin-bottom: 0;
+}
+
+.date-range {
+  font-size: 0.9rem;
+  color: #64748b;
+  font-weight: 500;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.experience-description,
+.project-description {
+  margin-top: 8px;
+  line-height: 1.6;
+  color: #4b5563;
+}
+
+.gpa {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+.skill-category {
+  margin-bottom: 12px;
+}
+
+.skill-category-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+.skill-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.skill-tag {
+  background: #f1f5f9;
+  color: #475569;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.project-technologies {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+.project-title a {
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+.project-title a:hover {
+  text-decoration: underline;
+}
+
+/* Print styles */
+@media print {
+  .final-page {
+    background: white;
+  }
+  
+  .navigation,
+  .progress-bar,
+  .final-header,
+  .final-actions-card {
+    display: none !important;
+  }
+  
+  .final-layout {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  
+  .resume-final {
+    width: 100%;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 20px;
+    margin: 0;
+  }
+  
+  .contact-item {
+    color: #000 !important;
+  }
+  
+  .contact-item a {
+    color: #000 !important;
+  }
+}
+
+@media (max-width: 1200px) {
+  .final-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .final-actions-card {
+    position: static;
+    order: 2;
+  }
+  
+  .final-preview {
+    order: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .final-actions-card {
+    padding: 24px;
+  }
+  
+  .format-selector {
+    gap: 8px;
+  }
+  
+  .format-option {
+    padding: 12px;
+  }
+  
+  .action-buttons .btn,
+  .additional-actions .btn {
+    width: 100%;
+  }
+  
+  .resume-final {
+    width: 100%;
+    padding: 20px;
+    margin: 0 10px;
+  }
+  
+  .resume-name {
+    font-size: 2rem;
+  }
+  
+  .resume-contact {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .experience-header,
+  .education-header,
+  .project-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .date-range {
+    text-align: left;
+    margin-top: 4px;
+  }
+  
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .final-actions-card {
+    padding: 20px;
+  }
+  
+  .resume-name {
+    font-size: 1.75rem;
+  }
+  
+  .section-title {
+    font-size: 1.1rem;
+  }
+}
